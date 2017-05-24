@@ -1,0 +1,21 @@
+{
+  "name": "polymer-punk-brew",
+  "version": "1.0.0",
+  "description": "Brew Dog Beers",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "polymer serve & npm run watch",
+    "watch": "browser-sync start --proxy http://127.0.0.1:8081 --files 'src/**/*' "
+  },
+  "keywords": [
+    "beer"
+  ],
+  "author": "Bill Searle",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.11"
+  }
+}

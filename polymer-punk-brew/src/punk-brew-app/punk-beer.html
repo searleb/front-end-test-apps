@@ -1,0 +1,58 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+
+
+<dom-module id='punk-beer'>
+  <template>
+    <style>
+      :host {
+        max-width: 400px;
+        width: 100%
+      }
+      paper-card {
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+    </style>
+    <paper-card>
+      <iron-image style="width: 100%; height:300px; max-width: 400px; background-color: white;"
+      sizing="contain" preload fade src="[[beer.image_url]]"></iron-image>
+      <h3>
+        [[beer.name]]
+        <br />
+        <small>[[beer.tagline]]</small>
+      </h3>
+      <p>[[beer.description]]</p>
+
+      <h4>Food pairing</h4>
+      <ul>
+        <template is="dom-repeat" items="[[beer.food_pairing]]" as="food">
+          <li>[[food]]</li>
+        </template>
+      </ul>
+
+      <a href="/beer/[[beer.id]]">More</a>
+
+    </paper-card>
+  </template>
+
+  <script>
+
+  class PunkBeer extends Polymer.Element {
+    static get is() { return 'punk-beer' }
+
+    static get properties() {
+      return {
+        beer: {
+          type: Object
+        }
+      }
+    }
+  }
+
+  window.customElements.define(PunkBeer.is, PunkBeer);
+  </script>
+</dom-module>
