@@ -1,0 +1,6 @@
+section.beers-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 100%;
+}
