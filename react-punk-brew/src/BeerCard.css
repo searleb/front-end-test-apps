@@ -6,7 +6,7 @@
   margin: 1rem 0;
   padding: 1rem;
 }
-img {
+.beer-card img {
   height: 300px;
   max-width: 100%;
   display: block;

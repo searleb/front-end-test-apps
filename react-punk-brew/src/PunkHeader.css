@@ -3,7 +3,7 @@ nav {
   display: flex;
   padding: 0px 1em;
 }
-h2 {
+nav h2 {
   color: #fff;
   font-size: 1.7em;
 }

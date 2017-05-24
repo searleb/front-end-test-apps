@@ -17,7 +17,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className='beers-list'>
         {this.state.beers ?
           this.state.beers.map((beer, i) => <BeerCard key={i} beer={beer} />)
           :

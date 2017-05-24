@@ -20,7 +20,7 @@ class BeerCard extends React.Component {
           {beer.food_pairing.map((food, i) => <li key={i}>{food}</li> )}
         </ul>
 
-        <a href={`/beer/${beer.id}`}>More</a>
+        <a href={`/#/beer/${beer.id}`}>More</a>
       </div>
     )
   }
