@@ -14,7 +14,7 @@ The app consists of a listings page and a product details page.
 An API call is made to load all the beers at the home page and another call is made to return the values
 of a specific beer using route params at the details page.
 
-Vue have a large article comparing many libraries/framworks.
+Vue have a large article comparing many libraries/frameworks.
 
 https://vuejs.org/v2/guide/comparison.html
 
