@@ -10,6 +10,7 @@ class App extends Component {
     return (
       <main>
         <PunkHeader />
+        {/* Router Switch */}
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/beer/:id' component={BeerDetails} />
