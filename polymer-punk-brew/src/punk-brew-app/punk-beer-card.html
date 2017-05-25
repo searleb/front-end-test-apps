@@ -5,7 +5,7 @@
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 
 
-<dom-module id='punk-beer'>
+<dom-module id='punk-beer-card'>
   <template>
     <style>
       :host {
@@ -41,8 +41,8 @@
 
   <script>
 
-  class PunkBeer extends Polymer.Element {
-    static get is() { return 'punk-beer' }
+  class PunkBeerCard extends Polymer.Element {
+    static get is() { return 'punk-beer-card' }
 
     static get properties() {
       return {
@@ -53,6 +53,6 @@
     }
   }
 
-  window.customElements.define(PunkBeer.is, PunkBeer);
+  window.customElements.define(PunkBeerCard.is, PunkBeerCard);
   </script>
 </dom-module>
