@@ -33,6 +33,19 @@ https://github.com/PolymerElements/app-route
 - Deprecated page transition element. 😔
 - Would recommend a different solution, backend or another JS library.
 
+#### Templating
+https://www.polymer-project.org/2.0/docs/devguide/dom-template
+
+- Uses HTML with custom `<template>` elements for loops and conditional rendering.
+- Interpolation of variables has one way `[[x]]` data flow or two way `{{x}}`.
+
+a for loop:
+```HTML
+<template is="dom-repeat" items="[[brews]]" as="beer">
+  <punk-beer-card beer="[[beer]]"></punk-beer>
+</template>
+```
+
 
 
 ## React
@@ -50,6 +63,17 @@ https://reacttraining.com/react-router/ (v4)
 - Well documented.
 - Component has access to params through `this.props.match`.
 
+#### Templating
+https://facebook.github.io/react/docs/introducing-jsx.html
+
+- Uses JSX - Basically syntaxical sugar for writing HTML in JS. (Optional but highly recommended)
+- Uses JS for loops and conditional rendering.
+- Interpolation is either with `{}` syntax in JSX or plain JS variables.
+
+a for loop:
+```javascript
+  this.state.beers.map((beer, i) => <BeerCard key={i} beer={beer} />
+```
 
 
 ## Vue
@@ -71,3 +95,14 @@ https://vuejs.org/v2/guide/routing.html
 - Standard way of reacting to route changes.
 - Well documented.
 - Component has access to params through `this.$route.params`.
+
+#### Templating
+https://vuejs.org/v2/guide/syntax.html
+
+- Uses HTML with custom directives for loops and conditional rendering.
+- Interpolation uses `{{}}` syntax. However they can not be used on an HTML attribute. An attribute must reference a variable. See `BeerCard.vue` for an example and [docs](https://vuejs.org/v2/guide/syntax.html#Attributes).
+
+a for loop:
+```HTML
+  <beer-card v-for="beer in beers" :beer="beer" :key="beer.id"></beer-card>
+```
