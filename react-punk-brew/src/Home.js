@@ -11,7 +11,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios
-    .get('https://api.punkapi.com/v2/beers')
+    .get('https://api.punkapi.com/v2/beers?per_page=80')
     .then(res => this.setState({ beers: res.data }));
   }
 

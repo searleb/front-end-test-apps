@@ -7,7 +7,6 @@ class BeerDetails extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     axios
     .get(`https://api.punkapi.com/v2/beers/${this.props.match.params.id}`)
     .then(res => this.setState({ brew: res.data[0] }));
@@ -31,7 +30,7 @@ class BeerDetails extends React.Component {
 
             <h4>Food pairing</h4>
             <ul>
-              {brew.food_pairing.map(food => <li>{food}</li>)}
+              {brew.food_pairing.map((food, i) => <li key={i}>{food}</li>)}
             </ul>
 
             <h2>
@@ -41,8 +40,8 @@ class BeerDetails extends React.Component {
             <h3>Ingredients</h3>
             <h4>Hops</h4>
             <ul>
-              {brew.ingredients.hops.map(hops =>
-                <li>
+              {brew.ingredients.hops.map((hops, i) =>
+                <li key={i}>
                   {hops.name}: {hops.amount.value} {hops.amount.unit} ({hops.add})
                 </li>
               )}
@@ -50,8 +49,8 @@ class BeerDetails extends React.Component {
 
             <h4>Malt</h4>
             <ul>
-              {brew.ingredients.malt.map(malt =>
-                <li>{malt.name}: {malt.amount.value} {malt.amount.unit}</li>
+              {brew.ingredients.malt.map((malt, i) =>
+                <li key={i}>{malt.name}: {malt.amount.value} {malt.amount.unit}</li>
               )}
             </ul>
 
@@ -68,8 +67,8 @@ class BeerDetails extends React.Component {
             {brew.method.fermentation.temp.value} {brew.method.fermentation.temp.unit}
             <h4>Mash Temp</h4>
             <ul>
-              {brew.method.mash_temp.map(mash =>
-                <li>{mash.duration} mins at {mash.temp.value} {mash.temp.unit}</li>
+              {brew.method.mash_temp.map((mash, i) =>
+                <li key={i}>{mash.duration} mins at {mash.temp.value} {mash.temp.unit}</li>
               )}
             </ul>
             <h4>Twist</h4>
