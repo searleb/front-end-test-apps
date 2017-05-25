@@ -7,7 +7,7 @@ The main parts consist of:
 - API integration
 - CLI
 
-Everyone loves :beer: and the guys over at [Brew Dog have an API](https://punkapi.com/) that lists all their beers in detail, so I've built a product listing app - Punk Brew.
+Everyone loves :beer: and [this guy](https://github.com/samjbmason/punkapi-db) created an API from [Brew Dogs DIY Dog](https://www.brewdog.com/diydog) that lists all their beers in detail, so I've built a product listing app - Punk Brew.
 
 The app consists of a listings page and a product details page.
 
