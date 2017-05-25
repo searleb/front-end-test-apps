@@ -13,7 +13,7 @@
   export default{
     name: 'home',
     mounted() {
-      axios.get('https://api.punkapi.com/v2/beers').then((res) => {
+      axios.get('https://api.punkapi.com/v2/beers?per_page=80').then((res) => {
         this.beers = res.data;
         this.loading = false;
       });
