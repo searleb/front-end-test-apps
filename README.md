@@ -5,7 +5,7 @@ The main parts consist of:
 - Templating
 - Routing
 - API integration
-- To a lesser extent their CLI
+- CLI
 
 Everyone loves :beer: and the guys over at [Brew Dog have an API](https://punkapi.com/) that lists all their beers in detail, so I've built a product listing app - Punk Brew.
 
@@ -14,9 +14,16 @@ The app consists of a listings page and a product details page.
 An API call is made to load all the beers at the home page and another call is made to return the values
 of a specific beer using route params at the details page.
 
+Vue have a large article comparing many libraries/framworks.
+
+https://vuejs.org/v2/guide/comparison.html
 
 ## Polymer
+https://www.polymer-project.org/
+
 #### CLI
+https://www.polymer-project.org/2.0/start/install-2-0
+
 Provides several options to bootstrap an element or project.
 `polymer-2-stater-kit` provides a template with routing set up and some layout but in most cases you'll end up tearing this down so it's more likely you'll want `polymer-application` which doesn't include routing.
 This project used `polymer-application`.
@@ -26,9 +33,9 @@ This project used `polymer-application`.
 - Does not have live reloading built in.
 
 #### Routing
-https://github.com/PolymerElements/app-route
-- Uses multiple HTML components.
-- Non intuitive params and data flow.
+https://www.polymer-project.org/2.0/toolbox/routing
+- Uses multiple HTML components to build a router.
+- Non intuitive params definition and data flow.
 - No standard way of reacting to route changes.
 - Deprecated page transition element. 😔
 - Would recommend a different solution, backend or another JS library.
@@ -46,10 +53,33 @@ a for loop:
 </template>
 ```
 
+#### API
+https://www.webcomponents.org/element/PolymerElements/iron-ajax
+
+- Easy to use `<iron-ajax>` element by the Polymer team.
+- Some parts are missing from the docs.
+- Could use any other HTTP library.
+
+```HTML    
+<iron-ajax
+  auto
+  url="https://api.punkapi.com/v2/beers"
+  handle-as="json"
+  last-response="{{brews}}"
+  debounce-duration="300">
+</iron-ajax>
+```
+
+
+
 
 
 ## React
+https://facebook.github.io/react/
+
 #### CLI
+https://facebook.github.io/react/docs/installation.html
+
 No setup options, just scoffolds out a basic app with `src` and `public` folders.
 - Local server and build tasks provided by `npm` scripts.
 - Live reloading.
@@ -75,9 +105,27 @@ a for loop:
   this.state.beers.map((beer, i) => <BeerCard key={i} beer={beer} />
 ```
 
+#### API
+https://github.com/mzabriskie/axios
+
+- Could use any HTTP library
+
+```javascript
+axios
+.get('https://api.punkapi.com/v2/beers')
+.then(res => this.setState({ beers: res.data }));
+```
+
+
+
+
 
 ## Vue
+https://vuejs.org/
+
 #### CLI
+https://vuejs.org/v2/guide/installation.html#CLI
+
 Highly configurable.
 
 This project used the `webpack` template.
@@ -105,4 +153,15 @@ https://vuejs.org/v2/guide/syntax.html
 a for loop:
 ```HTML
   <beer-card v-for="beer in beers" :beer="beer" :key="beer.id"></beer-card>
+```
+
+#### API
+https://github.com/mzabriskie/axios
+
+- Could use any HTTP library
+
+```javascript
+axios
+.get('https://api.punkapi.com/v2/beers')
+.then(res => this.beers = res.data );
 ```
