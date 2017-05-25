@@ -27,9 +27,9 @@
       }
     </style>
 
-    <!-- Routing using - https://github.com/PolymerElements/app-route -->
+    <!-- Router -->
     <app-location route="{{route}}"></app-location>
-    <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+    <app-route route="{{route}}" pattern="/:page/" data="{{routeData}}" tail="{{subroute}}"></app-route>
     <app-route route="{{subroute}}" pattern="/:id" data="{{subrouteData}}"></app-route>
 
     <!-- header -->

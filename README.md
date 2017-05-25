@@ -25,14 +25,31 @@ This project used `polymer-application`.
 - Tests.
 - Does not have live reloading built in.
 
+#### Routing
+https://github.com/PolymerElements/app-route
+- Uses multiple HTML components.
+- Non intuitive params and data flow.
+- No standard way of reacting to route changes.
+- Deprecated page transition element. 😔
+- Would recommend a different solution, backend or another JS library.
+
+
 
 ## React
 #### CLI
 No setup options, just scoffolds out a basic app with `src` and `public` folders.
-
 - Local server and build tasks provided by `npm` scripts.
 - Live reloading.
 - Tests.
+
+#### Routing
+https://reacttraining.com/react-router/ (v4)
+- Uses muliple components from the `react-router` package.
+- As expected params definition.
+- Standard way of reacting to route changes.
+- Well documented.
+- Component has access to params through `this.props.match`.
+
 
 
 ## Vue
@@ -46,3 +63,11 @@ This project used the `webpack` template.
 - Router option.
 - ESLint options.
 - Test options.
+
+#### Routing
+https://vuejs.org/v2/guide/routing.html
+- Uses an exported `Router` object with all route definitions.
+- As expected params definition.
+- Standard way of reacting to route changes.
+- Well documented.
+- Component has access to params through `this.$route.params`.
