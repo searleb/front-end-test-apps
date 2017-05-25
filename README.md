@@ -18,6 +18,37 @@ Vue have a large article comparing many libraries/framworks.
 
 https://vuejs.org/v2/guide/comparison.html
 
+
+## Installing the projects
+#### Polymer
+```bash
+cd polymer-punk-brew
+bower install
+node install
+polymer serve
+---------------
+I have added browsersync so you can also run:
+npm run start
+```
+
+#### React
+```bash
+cd react-punk-brew
+node install
+npm run start
+```
+
+#### Vue
+```bash
+cd vue-punk-brew
+node install
+npm run start
+```
+
+
+
+
+
 ## Polymer
 https://www.polymer-project.org/
 
