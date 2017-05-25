@@ -13,7 +13,8 @@
     "paper-dialog": "2.0-preview",
     "iron-pages": "PolymerElements/iron-pages#2.0-preview",
     "app-route": "PolymerElements/app-route#2.0-preview",
-    "paper-spinner": "PolymerElements/paper-spinner#^2.0.0"
+    "paper-spinner": "PolymerElements/paper-spinner#^2.0.0",
+    "iron-ajax": "^2.0.1"
   },
   "devDependencies": {
     "web-component-tester": "^6.0.0-prerelease.5",
