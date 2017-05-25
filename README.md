@@ -24,7 +24,7 @@ https://vuejs.org/v2/guide/comparison.html
 ```bash
 cd polymer-punk-brew
 bower install
-node install
+npm install
 polymer serve
 ---------------
 I have added browsersync so you can also run:
@@ -34,14 +34,14 @@ npm run start
 #### React
 ```bash
 cd react-punk-brew
-node install
+npm install
 npm run start
 ```
 
 #### Vue
 ```bash
 cd vue-punk-brew
-node install
+npm install
 npm run start
 ```
 
