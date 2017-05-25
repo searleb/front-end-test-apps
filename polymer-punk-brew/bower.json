@@ -20,6 +20,8 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.7"
   },
   "resolutions": {
-    "polymer": "master"
+    "polymer": "master",
+    "paper-styles": "1 - 2",
+    "iron-flex-layout": "1 - 2"
   }
 }
