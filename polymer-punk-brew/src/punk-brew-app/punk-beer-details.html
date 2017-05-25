@@ -5,7 +5,7 @@
 <link rel="import" href="../../bower_components/paper-spinner/paper-spinner-lite.html">
 
 
-<dom-module id='punk-beer-page'>
+<dom-module id='punk-beer-details'>
   <template>
     <style>
       :host {
@@ -112,12 +112,12 @@
 
   <script>
 
-  class PunkBeerPage extends Polymer.Element {
+  class PunkBeerDetails extends Polymer.Element {
     constructor() {
       super()
     }
 
-    static get is() { return 'punk-beer-page' }
+    static get is() { return 'punk-beer-details' }
 
     static get properties() {
       return {
@@ -140,25 +140,11 @@
       }
     }
 
-    connectedCallback() {
-      console.log('connectedCallback');
-    }
-    disconnectedCallback() {
-      console.log('disconnectedCallback');
-      this.beer = {}
-    }
-    attributeChangedCallback(attrName, oldVal, newVal) {
-      console.log(attrName, oldVal, newVal);
-    }
-    handleBeerChange(beer) {
-      // console.log(beer);
-    }
-
     handleResponse(data) {
       this.beer = data[0]
     }
   }
 
-  window.customElements.define(PunkBeerPage.is, PunkBeerPage);
+  window.customElements.define(PunkBeerDetails.is, PunkBeerDetails);
   </script>
 </dom-module>
