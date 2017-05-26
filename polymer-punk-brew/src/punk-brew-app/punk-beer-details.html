@@ -1,9 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/paper-spinner/paper-spinner-lite.html">
-
 
 <dom-module id='punk-beer-details'>
   <template>
@@ -113,10 +111,6 @@
   <script>
 
   class PunkBeerDetails extends Polymer.Element {
-    constructor() {
-      super()
-    }
-
     static get is() { return 'punk-beer-details' }
 
     static get properties() {
@@ -131,7 +125,6 @@
         beer: {
           type: Object,
           value: {},
-          observer: 'handleBeerChange'
         },
         loading: {
           type: Boolean,
