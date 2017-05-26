@@ -6,30 +6,36 @@
 <dom-module id='punk-beer-details'>
   <template>
     <style>
-      :host {
+       :host {
         max-width: 400px;
         width: 100%
       }
+
       paper-card {
         padding: 1rem;
         margin: 1rem 0;
       }
+
+      iron-image {
+        width: 100%;
+        height: 300px;
+        max-width: 400px;
+        background-color: white;
+      }
     </style>
     <iron-ajax
-        auto
-        url="https://api.punkapi.com/v2/beers/[[beerId]]"
-        handle-as="json"
-        last-response="{{beerResponse}}"
-        loading="{{loading}}"
-        debounce-duration="300">
+      auto
+      url="https://api.punkapi.com/v2/beers/[[beerId]]"
+      handle-as="json"
+      last-response="{{beerResponse}}"
+      loading="{{loading}}">
     </iron-ajax>
 
     <paper-spinner-lite active=[[loading]]></paper-spinner-lite>
 
     <template is="dom-if" if=[[!loading]]>
       <section>
-        <iron-image style="width: 100%; height:300px; max-width: 400px; background-color: white;"
-        sizing="contain" preload fade src="[[beer.image_url]]"></iron-image>
+        <iron-image sizing="contain" preload fade src="[[beer.image_url]]"></iron-image>
         <h3>
           [[beer.name]]
           <br />
@@ -46,98 +52,97 @@
 
         <a href="/beer/[[beer.id]]">More</a>
 
-          <h2>
-            [[beer.name]] Brewing Guide <br />
-            <small>First brewed: [[beer.first_brewed]]</small>
-          </h2>
-            <h3>Ingredients</h3>
-            <h4>Hops</h4>
-            <ul>
-              <template is="dom-repeat" items="[[beer.ingredients.hops]]" as="hops">
-                <li>
-                  [[hops.name]]: [[hops.amount.value]] [[hops.amount.unit]] ([[hops.add]])
-                </li>
-              </template>
-            </ul>
+        <h2>
+          [[beer.name]] Brewing Guide <br />
+          <small>First brewed: [[beer.first_brewed]]</small>
+        </h2>
+        <h3>Ingredients</h3>
+        <h4>Hops</h4>
+        <ul>
+          <template is="dom-repeat" items="[[beer.ingredients.hops]]" as="hops">
+            <li>
+              [[hops.name]]: [[hops.amount.value]] [[hops.amount.unit]] ([[hops.add]])
+            </li>
+          </template>
+        </ul>
 
-            <h4>Malt</h4>
-            <ul>
-              <template is="dom-repeat" items="[[beer.ingredients.malt]]" as="malt">
-                <li>[[malt.name]]: [[malt.amount.value]] [[malt.amount.unit]]</li>
-              </template>
-            </ul>
+        <h4>Malt</h4>
+        <ul>
+          <template is="dom-repeat" items="[[beer.ingredients.malt]]" as="malt">
+            <li>[[malt.name]]: [[malt.amount.value]] [[malt.amount.unit]]</li>
+          </template>
+        </ul>
 
-            <h4>Yeast</h4>
-            [[beer.ingredients.yeast]]
-            <ul>
-              <li>
-                ABV: [[beer.abv]]
-              </li>
-            </ul>
+        <h4>Yeast</h4>
+        [[beer.ingredients.yeast]]
+        <ul>
+          <li>
+            ABV: [[beer.abv]]
+          </li>
+        </ul>
 
-            <h3>Brew Method</h3>
-            <h4>Fermentation</h4>
-            [[beer.method.fermentation.temp.value]] [[beer.method.fermentation.temp.unit]]
-            <h4>Mash Temp</h4>
-            <ul>
-              <template is="dom-repeat" items=[[beer.method.mash_temp]] as="mash">
-                <li>[[mash.duration]] mins at [[mash.temp.value]] [[mash.temp.unit]]</li>
-              </template>
-            </ul>
-            <h4>Twist</h4>
-            [[beer.method.twist]]
+        <h3>Brew Method</h3>
+        <h4>Fermentation</h4>
+        [[beer.method.fermentation.temp.value]] [[beer.method.fermentation.temp.unit]]
+        <h4>Mash Temp</h4>
+        <ul>
+          <template is="dom-repeat" items=[[beer.method.mash_temp]] as="mash">
+            <li>[[mash.duration]] mins at [[mash.temp.value]] [[mash.temp.unit]]</li>
+          </template>
+        </ul>
+        <h4>Twist</h4>
+        [[beer.method.twist]]
 
-            <h3>Brewers Tip</h3>
-            <p>[[beer.brewers_tips]]</p>
+        <h3>Brewers Tip</h3>
+        <p>[[beer.brewers_tips]]</p>
 
-            <h3>Stats</h3>
-            <ul>
-              <li>ABV: [[beer.abv]]</li>
-              <li>EBC: [[beer.ebc]]</li>
-              <li>IBU: [[beer.ibu]]</li>
-              <li>PH: [[beer.ph]]</li>
-              <li>SRM: [[beer.srm]]</li>
-              <li>Volume: [[beer.volume.value]] [[beer.volume.unit]]</li>
-              <li>Target FG: [[beer.target_fg]]</li>
-              <li>Target OG: [[beer.target_og]]</li>
-              <li>Attenuation Level: [[beer.attenuation_level]]</li>
-              <li>Boil Volume: [[beer.boil_volume.value]] [[beer.boil_volume.unit]]</li>
-            </ul>
-
+        <h3>Stats</h3>
+        <ul>
+          <li>ABV: [[beer.abv]]</li>
+          <li>EBC: [[beer.ebc]]</li>
+          <li>IBU: [[beer.ibu]]</li>
+          <li>PH: [[beer.ph]]</li>
+          <li>SRM: [[beer.srm]]</li>
+          <li>Volume: [[beer.volume.value]] [[beer.volume.unit]]</li>
+          <li>Target FG: [[beer.target_fg]]</li>
+          <li>Target OG: [[beer.target_og]]</li>
+          <li>Attenuation Level: [[beer.attenuation_level]]</li>
+          <li>Boil Volume: [[beer.boil_volume.value]] [[beer.boil_volume.unit]]</li>
+        </ul>
       </section>
     </template>
   </template>
-
   <script>
+    class PunkBeerDetails extends Polymer.Element {
+      static get is() {
+        return 'punk-beer-details';
+      }
 
-  class PunkBeerDetails extends Polymer.Element {
-    static get is() { return 'punk-beer-details' }
-
-    static get properties() {
-      return {
-        beerId: {
-          type: Number
-        },
-        beerResponse: {
-          type: Array,
-          observer: 'handleResponse'
-        },
-        beer: {
-          type: Object,
-          value: {},
-        },
-        loading: {
-          type: Boolean,
-          value: true,
+      static get properties() {
+        return {
+          beerId: {
+            type: Number
+          },
+          beerResponse: {
+            type: Array,
+            observer: 'handleResponse'
+          },
+          beer: {
+            type: Object,
+            value: {},
+          },
+          loading: {
+            type: Boolean,
+            value: true,
+          }
         }
+      }
+
+      handleResponse(data) {
+        this.beer = data[0];
       }
     }
 
-    handleResponse(data) {
-      this.beer = data[0]
-    }
-  }
-
-  window.customElements.define(PunkBeerDetails.is, PunkBeerDetails);
+    window.customElements.define(PunkBeerDetails.is, PunkBeerDetails);
   </script>
 </dom-module>
