@@ -37,10 +37,8 @@
         auto
         url="https://api.punkapi.com/v2/beers?per_page=80"
         handle-as="json"
-        last-response="{{brews}}"
-        debounce-duration="300">
+        last-response="{{brews}}">
     </iron-ajax>
-
 
     <app-header>
       <app-toolbar>
@@ -74,18 +72,6 @@
             type: Array,
           }
         };
-      }
-
-      static get observers() {
-        return [
-          '_routePageChanged(routeData.page, subrouteData.id)',
-        ];
-      }
-
-      _routePageChanged(page, id) {
-        if (page !== undefined) {
-          this.page = page || 'home';
-        }
       }
     }
 
