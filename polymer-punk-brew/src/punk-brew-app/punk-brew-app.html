@@ -33,7 +33,11 @@
     <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
     <app-route route="{{subroute}}" pattern="/:id" data="{{subrouteData}}"></app-route>
 
-    <iron-ajax auto url="https://api.punkapi.com/v2/beers?per_page=80" handle-as="json" last-response="{{brews}}">
+    <iron-ajax
+      auto
+      url="https://api.punkapi.com/v2/beers?per_page=80"
+      handle-as="json"
+      last-response="{{brews}}">
     </iron-ajax>
 
     <app-header>
