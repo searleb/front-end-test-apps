@@ -1,5 +1,7 @@
 import React from 'react'
 import './BeerCard.css'
+import { Link } from 'react-router-dom'
+
 
 class BeerCard extends React.Component {
   render() {
@@ -20,7 +22,7 @@ class BeerCard extends React.Component {
           {beer.food_pairing.map((food, i) => <li key={i}>{food}</li> )}
         </ul>
 
-        <a href={`/#/beer/${beer.id}`}>More</a>
+        <Link to={`/beer/${beer.id}`}>More</Link>
       </div>
     )
   }
