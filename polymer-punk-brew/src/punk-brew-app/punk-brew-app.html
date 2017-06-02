@@ -1,6 +1,4 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="punk-beer-card.html">
-<link rel="import" href="punk-beer-details.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/app-layout/app-layout.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
@@ -10,45 +8,44 @@
 <link rel="import" href="../../bower_components/app-route/app-location.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="punk-beer-card.html">
+<link rel="import" href="punk-beer-details.html">
 
 <dom-module id="punk-brew-app">
   <template>
     <style is="custom-style" include="iron-flex iron-flex-alignment" />
     <style>
-      :host {
+       :host {
         display: block;
       }
+
       h1 {
         @apply(--paper-font-display1);
         color: var(--paper-grey-50);
       }
+
       app-header {
         background-color: var(--paper-purple-600);
       }
     </style>
 
-    <!-- Router -->
     <app-location route="{{route}}"></app-location>
-    <app-route route="{{route}}" pattern="/:page/" data="{{routeData}}" tail="{{subroute}}"></app-route>
+    <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
     <app-route route="{{subroute}}" pattern="/:id" data="{{subrouteData}}"></app-route>
 
-    <!-- API -->
     <iron-ajax
-        auto
-        url="https://api.punkapi.com/v2/beers?per_page=80"
-        handle-as="json"
-        last-response="{{brews}}"
-        debounce-duration="300">
+      auto
+      url="https://api.punkapi.com/v2/beers?per_page=80"
+      handle-as="json"
+      last-response="{{brews}}">
     </iron-ajax>
 
-
-    <app-header effects="waterfall">
+    <app-header>
       <app-toolbar>
         <h1>Brew Dog Library</h1>
       </app-toolbar>
     </app-header>
 
-    <!-- page to show based on output of routing - https://github.com/PolymerElements/iron-pages -->
     <iron-pages selected="[[routeData.page]]" attr-for-selected="name" fallback-selection="home" role="main">
       <main class="layout horizontal wrap around-justified" name="home">
         <template is="dom-repeat" items="[[brews]]" as="beer">
@@ -57,41 +54,19 @@
       </main>
       <punk-beer-details name="beer" beer-id="[[subrouteData.id]]"></punk-beer-details>
     </iron-pages>
-
   </template>
-
   <script>
-    /**
-     * @customElement
-     * @polymer
-     */
     class PunkBrewApp extends Polymer.Element {
-      static get is() { return 'punk-brew-app'; }
+      static get is() {
+        return 'punk-brew-app';
+      }
 
       static get properties() {
         return {
           brews: {
             type: Array,
-            observer: 'handleResponse'
           }
         };
-      }
-
-      static get observers() {
-        return [
-          '_routePageChanged(routeData.page, subrouteData.id)',
-        ];
-      }
-
-      _routePageChanged(page, id) {
-        console.log(page, id);
-        if (page !== undefined) {
-          this.page = page || 'home';
-        }
-      }
-
-      handleResponse(data) {
-        // console.log(data);
       }
     }
 
