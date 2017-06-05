@@ -1,7 +1,4 @@
-
-
-
-<template>
+<template lang="html">
   <div class="beer-card">
     <img :src="img" :alt="name">
     <h3>
@@ -25,17 +22,21 @@
   export default {
     props: ['beer'],
     name: 'beer-card',
-    data() {
-      return {
-        url: `/#/beer/${this.beer.id}`,
-        img: this.beer.image_url,
-        name: this.beer.name,
-      };
+    computed: {
+      url() {
+        return `/#/beer/${this.beer.id}`;
+      },
+      img() {
+        return this.beer.image_url;
+      },
+      name() {
+        return this.beer.name;
+      },
     },
   };
 </script>
 
-<style scoped>
+<style lang="css" scoped>
   .beer-card {
     background-color: #fff;
     box-shadow: 0px 2px 5px 1px rgba(0,0,0, 0.2);
