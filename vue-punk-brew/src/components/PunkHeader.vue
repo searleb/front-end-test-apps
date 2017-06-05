@@ -6,11 +6,6 @@
   </nav>
 </template>
 
-<script>
-export default {
-};
-</script>
-
 <style lang="css" scoped>
   nav {
     background-color: rgba(141, 42, 170, 1);

@@ -1,5 +1,4 @@
-
-<template>
+<template lang="html">
   <main>
     <p v-if="loading">Loading...</p>
     <beer-card v-if="!loading" v-for="beer in beers" :beer="beer" :key="beer.id"></beer-card>
@@ -18,21 +17,18 @@
         this.loading = false;
       });
     },
-    data() {
-      return {
-        beers: [],
-        loading: true,
-      };
-    },
+    data: () => ({
+      beers: [],
+      loading: true,
+    }),
   };
 </script>
 
-<style scoped>
+<style lang="css" scoped>
   main {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     height: 100%;
   }
-
 </style>
