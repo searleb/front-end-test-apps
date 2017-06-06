@@ -1,7 +1,7 @@
 // Router
 import Vue from 'vue';
 import Router from 'vue-router';
-import Hello from '@/components/Hello';
+import NotFound from '@/components/NotFound';
 import Home from '@/components/Home';
 import BeerDetails from '@/components/BeerDetails';
 
@@ -21,8 +21,8 @@ export default new Router({
     },
     {
       path: '/*',
-      name: 'Hello',
-      component: Hello,
+      name: 'NotFound',
+      component: NotFound,
     },
   ],
 });

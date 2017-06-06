@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div id="beer-details">
     <p v-if="loading">Loading...</p>
     <section v-if="!loading">
@@ -80,20 +80,20 @@ export default {
     axios.get(`https://api.punkapi.com/v2/beers/${this.$route.params.id}`).then((res) => {
       this.brew = res.data[0];
       this.loading = false;
+    })
+    .catch(() => {
+      this.loading = false;
+      this.$router.push('/not-found');
     });
   },
-  data() {
-    return {
-      brew: {},
-      loading: true,
-    };
-  },
+  data: () => ({
+    brew: {},
+    loading: true,
+  }),
 };
 </script>
 
-<style scoped>
-  #beer-details {
-  }
+<style lang="css" scoped>
   img {
     max-height: 300px;
   }

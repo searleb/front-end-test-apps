@@ -2,3 +2,6 @@ polymer-punk-brew/bower_components
 polymer-punk-brew/node_modules
 react-punk-brew/node_modules
 vue-punk-brew/node_modules
+*.sublime-project
+*.sublime-workspace
+.DS_Store
