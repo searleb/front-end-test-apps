@@ -9,13 +9,12 @@ const BeerCardWrapper = styled.div`
   width: 100%;
   margin: 1rem 0;
   padding: 1rem;
-`
-
-const Image = styled.img`
-  height: 300px;
-  max-width: 100%;
-  display: block;
-  margin: 0 auto 1em;
+  img {
+    height: 300px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 1em;
+  }
 `
 
 class BeerCard extends React.Component {
@@ -23,7 +22,7 @@ class BeerCard extends React.Component {
     const { beer } = this.props
     return (
       <BeerCardWrapper>
-        <Image src={beer.image_url} alt={beer.name} />
+        <img src={beer.image_url} alt={beer.name} />
         <h3>
           {beer.name}
           <br />
