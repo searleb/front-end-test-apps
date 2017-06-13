@@ -1,14 +1,29 @@
 import React from 'react'
-import './BeerCard.css'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
+const BeerCardWrapper = styled.div`
+  background-color: #fff;
+  box-shadow: 0px 2px 5px 1px rgba(0,0,0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+`
+
+const Image = styled.img`
+  height: 300px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 1em;
+`
 
 class BeerCard extends React.Component {
   render() {
     const { beer } = this.props
     return (
-      <div className="beer-card">
-        <img src={beer.image_url} alt={beer.name} />
+      <BeerCardWrapper>
+        <Image src={beer.image_url} alt={beer.name} />
         <h3>
           {beer.name}
           <br />
@@ -23,7 +38,7 @@ class BeerCard extends React.Component {
         </ul>
 
         <Link to={`/beer/${beer.id}`}>More</Link>
-      </div>
+      </BeerCardWrapper>
     )
   }
 }

@@ -1,7 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 import BeerCard from './BeerCard'
-import './Home.css'
+import styled from 'styled-components'
+
+const BeersList = styled.section`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 100%;
+`
 
 class Home extends React.Component {
   state = {
@@ -17,13 +24,13 @@ class Home extends React.Component {
 
   render() {
     return (
-      <section className='beers-list'>
+      <BeersList>
         {this.state.beers ?
           this.state.beers.map((beer, i) => <BeerCard key={i} beer={beer} />)
           :
           'Loading...'
         }
-      </section>
+      </BeersList>
     )
   }
 }
